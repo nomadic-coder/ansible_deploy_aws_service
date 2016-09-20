@@ -1,0 +1,49 @@
+---
+- name: gather subnet facts
+  ec2_vpc_subnet_facts:
+    region: "{{ region }}"
+    filters:
+      default-for-az: "true"
+      availability-zone: "{{ region }}a"
+  register: subnet_facts
+
+- debug: var=subnet_facts.subnets[0].id
+
+- name: Add Security Group
+  ec2_group:
+    region: "{{ region }}"
+    name: "{{ app_name }}_sg"
+    description: "Security group for {{ app_name }}"
+    rules:
+      - proto: tcp
+        from_port: 8080
+        to_port: 8080
+        cidr_ip: 0.0.0.0/0
+      - proto: tcp
+        from_port: 22
+        to_port: 22
+        cidr_ip: 0.0.0.0/0
+      - proto: icmp
+        from_port: -1
+        to_port: -1
+        cidr_ip: 0.0.0.0/0
+    rules_egress:
+      - proto: all
+        cidr_ip: 0.0.0.0/0
+  register: sg
+
+- debug: var=sg
+
+- name: Create EC2
+  ec2:
+    key_name: "{{ key_name }}"
+    region: "{{ region }}"
+    instance_type: t2.micro
+    image: ami-ed82e39e
+    vpc_subnet_id: "{{ subnet_facts.subnets[0].id }}"
+    group_id: "{{ sg.group_id }}"
+    assign_public_ip: yes
+    instance_tags: { "Name":"{{ app_name }}_ec2" }
+  register: ec2
+
+- debug: var=ec2

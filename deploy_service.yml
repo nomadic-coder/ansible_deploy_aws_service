@@ -1,0 +1,9 @@
+---
+- hosts: tag_Name_surfspotter_ec2
+  user: ubuntu
+  become_method: sudo
+  become: yes
+  become_user: ubuntu
+
+  roles:
+    - deploy

@@ -1,0 +1,12 @@
+---
+- name: Get package from S3
+  ping:
+#  apt: name=apache2 update_cache=yes
+
+- name: who
+  shell: whoami
+  register: who
+
+- debug: var=who
+
+

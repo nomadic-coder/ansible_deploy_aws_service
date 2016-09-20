@@ -1,0 +1,7 @@
+---
+- hosts: aws
+  connection: local
+
+  roles:
+    - create_ec2
+
