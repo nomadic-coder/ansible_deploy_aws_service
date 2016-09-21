@@ -1,6 +1,6 @@
 [aws]
 localhost
 
-#[ec2]
-#52.50.37.92
+[tag_Name_surfspotter_ec2]
+52.209.184.112
 

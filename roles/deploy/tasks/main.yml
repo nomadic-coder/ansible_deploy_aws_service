@@ -7,6 +7,14 @@
   shell: whoami
   register: who
 
+#- name: copy
+#  connection: local
+#  copy:
+#    src: ssh_private_key
+#    dest: /home/satish/Development/Ansible/aws/ansible_deploy_aws_surfspotter/tmp
+
 - debug: var=who
+
+
 
 
