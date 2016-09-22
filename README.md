@@ -10,7 +10,7 @@ The playbooks rely on the environment variable SSH_KEY_DIR to point to a directo
 **To launch and EC2**  
 % run_launch_ec2.sh <region> <application name> <key_name>  
 
-e.g % run_launch_ec2.sg eu-west-1 hello_world hello_world
+e.g % run_launch_ec2.sh eu-west-1 hello_world my_ssh_key
 
 **To deploy your application (work in progress)**  
 % run_deploy.sh <application name>  
