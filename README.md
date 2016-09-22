@@ -3,7 +3,7 @@
 ## Requirements
 The playbooks rely on the environment variable SSH_KEY_DIR to point to a directory containing your private ssh key for AWS.  
   
-*e.g* if you keep your ssh keys in directory ***/home/user1/keys* then set SSH_KEY_DIR:  
+*e.g* if you keep your ssh keys in directory */home/user1/keys* then set SSH_KEY_DIR:  
 % export SSH_KEY_DIR=/home/user1/keys
 
 ### Execute scripts
