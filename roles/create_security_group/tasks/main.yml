@@ -1,0 +1,35 @@
+---
+- name: gather subnet facts
+  ec2_vpc_subnet_facts:
+    region: "{{ region }}"
+    filters:
+      default-for-az: "true"
+      availability-zone: "{{ region }}a"
+  register: subnet_facts
+
+- debug: var=subnet_facts.subnets[0].id
+
+- name: Add Security Group
+  ec2_group:
+    region: "{{ region }}"
+    name: "{{ app_name }}_sg"
+    description: "Security group for {{ app_name }}"
+    rules:
+      - proto: tcp
+        from_port: 8080
+        to_port: 8080
+        cidr_ip: 0.0.0.0/0
+      - proto: tcp
+        from_port: 22
+        to_port: 22
+        cidr_ip: 0.0.0.0/0
+      - proto: icmp
+        from_port: -1
+        to_port: -1
+        cidr_ip: 0.0.0.0/0
+    rules_egress:
+      - proto: all
+        cidr_ip: 0.0.0.0/0
+  register: sg
+
+- debug: var=sg

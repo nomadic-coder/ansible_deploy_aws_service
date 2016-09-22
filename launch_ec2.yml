@@ -3,5 +3,5 @@
   connection: local
 
   roles:
+    - create_security_group
     - create_ec2
-

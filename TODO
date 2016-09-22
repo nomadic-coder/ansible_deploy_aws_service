@@ -1,6 +1,5 @@
 - Pass private_key either on command line (or group_vars? and/or ansible vault) DONE
 - Set strict host checking to false  DONE
-- use ansble vault to encrypt private key
 - Pass become/become_user on command line (or figure out why it isn't being picked up from deploy_service.yml)
 - Repace shell: sudo apt-get .... with apt ansible module (deploy role)
 
