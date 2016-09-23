@@ -2,5 +2,6 @@
 - Set strict host checking to false  DONE
 - Pass become/become_user on command line (or figure out why it isn't being picked up from deploy_service.yml) DONE
 - Repace shell: sudo apt-get .... with apt ansible module (deploy role) DONE
-- Assign IAM Role to EC2 so that it can retrieve from S3
+- Assign IAM Role to EC2 DONE
+- Attach S3 read policy to IAM Role for EC2
 

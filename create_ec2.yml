@@ -4,4 +4,5 @@
 
   roles:
     - create_security_group
+    - create_iam_role
     - create_ec2

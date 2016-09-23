@@ -16,5 +16,6 @@
     image: "{{ ec2_image }}"
     vpc_subnet_id: "{{ subnet_facts.subnets[0].id }}"
     group_id: "{{ sg.group_id }}"
+    instance_profile_name: "{{ app_name }}_iam_role"
     assign_public_ip: yes
     instance_tags: { "Name":"{{ app_name }}_ec2" }

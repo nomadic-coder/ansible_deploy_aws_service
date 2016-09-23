@@ -1,0 +1,7 @@
+---
+- name: Create IAM role for
+  iam:
+    iam_type: role
+    name: "{{ app_name }}_iam_role"
+    state: present
+  register: iam_role
