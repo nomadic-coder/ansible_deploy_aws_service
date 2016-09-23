@@ -1,6 +1,4 @@
 ---
-- debug: msg="{{ key_name }} {{ region }} {{ app_name }}"
-
 - name: Create EC2
   ec2:
     key_name: "{{ key_name }}"
