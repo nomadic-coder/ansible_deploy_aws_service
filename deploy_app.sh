@@ -11,7 +11,7 @@ function displayUsage {
 }
 
 function main {
-    cmd="ansible-playbook -i modules/ec2.py deploy_app.yml -e \"app_name=${1} key_name=${2}\""
+    cmd="ansible-playbook -i modules/ec2.py deploy_app.yml -e \"app_name=${1} key_name=${2}\" -vvvv"
     echo "${cmd}"
     eval ${cmd}
 }

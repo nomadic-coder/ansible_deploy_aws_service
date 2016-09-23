@@ -1,7 +1,10 @@
 ---
-- name: Get package from S3
-  ping:
-#  apt: name=apache2 update_cache=yes
+- name: Install boto
+#  ping:
+  apt: name=python-boto update_cache=yes
+
+- name: Retrieve deployment package
+  s3: bucket=com.nomadiccoder.surfspotter object=/surfspotter.tar.gz dest=/home/ubuntu/surfspotter.tar.gz mode=get
 
 - name: who
   shell: whoami

@@ -1,9 +1,8 @@
 ---
 - hosts: "tag_Name_{{ app_name }}_ec2"
   user: ubuntu
-#  become_method: sudo
-#  become: yes
-#  become_user: ubuntu
+  become: yes
 
   roles:
     - deploy
+
