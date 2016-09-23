@@ -1,6 +1,11 @@
 #!/bin/bash
 
-function usage {
+function displayEnvNotSet {
+    echo "Please set env variable SSH_KEY_DIR"
+    exit 1
+}
+
+function displayUsage {
     echo "Usage: $0 <application name> <key name>"
     exit 1
 }
@@ -13,7 +18,10 @@ function main {
 
 if [[ $# -ne 2 ]]
 then
-    usage $*
+    displayUsage $*
+elif [ -z "$SSH_KEY_DIR" ]
+then
+    displayEnvNotSet
 else
     main $*
 fi

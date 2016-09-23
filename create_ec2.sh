@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function usage {
+function displayUsage {
     echo "Usage: $0 <region> <application name> <key pair name>"
     exit 1
 }
@@ -13,7 +13,7 @@ function main {
 
 if [[ $# -ne 3 ]]
 then
-    usage $*
+    displayUsage $*
 else
     main $*
 fi
