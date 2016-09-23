@@ -7,8 +7,6 @@
       availability-zone: "{{ region }}a"
   register: subnet_facts
 
-- debug: var=subnet_facts.subnets[0].id
-
 - name: Add Security Group
   ec2_group:
     region: "{{ region }}"
