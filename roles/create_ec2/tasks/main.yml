@@ -1,4 +1,6 @@
 ---
+- debug: msg="{{ key_name }} {{ region }} {{ app_name }}"
+
 - name: Create EC2
   ec2:
     key_name: "{{ key_name }}"
@@ -9,3 +11,4 @@
     group_id: "{{ sg.group_id }}"
     assign_public_ip: yes
     instance_tags: { "Name":"{{ app_name }}_ec2" }
+

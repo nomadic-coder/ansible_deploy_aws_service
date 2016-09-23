@@ -31,5 +31,3 @@
       - proto: all
         cidr_ip: 0.0.0.0/0
   register: sg
-
-- debug: var=sg
