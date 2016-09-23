@@ -7,7 +7,7 @@ The ansible playbooks rely on the environment variable SSH_KEY_DIR to point to a
 % export SSH_KEY_DIR=/home/user1/keys
 
 ### Execute scripts
-**To launch and EC2**  
+**To launch an EC2**  
 % create_ec2.sh \<region\> \<application name\> \<key_name\>  
 
 e.g % create_ec2.sh eu-west-1 hello_world my_ssh_key  
