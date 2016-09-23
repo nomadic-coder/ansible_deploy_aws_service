@@ -1,4 +1,12 @@
 ---
+- name: gather subnet facts
+  ec2_vpc_subnet_facts:
+    region: "{{ region }}"
+    filters:
+      default-for-az: "true"
+      availability-zone: "{{ region }}a"
+  register: subnet_facts
+
 - name: Create EC2
   ec2:
     key_name: "{{ key_name }}"

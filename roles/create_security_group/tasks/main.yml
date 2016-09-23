@@ -1,12 +1,4 @@
 ---
-- name: gather subnet facts
-  ec2_vpc_subnet_facts:
-    region: "{{ region }}"
-    filters:
-      default-for-az: "true"
-      availability-zone: "{{ region }}a"
-  register: subnet_facts
-
 - name: Add Security Group
   ec2_group:
     region: "{{ region }}"
