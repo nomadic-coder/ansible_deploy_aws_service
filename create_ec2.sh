@@ -6,7 +6,7 @@ function displayUsage {
 }
 
 function main {
-    cmd="ansible-playbook -i hosts create_ec2.yml -e \"region=${1} app_name=${2} key_name=${3}\""
+    cmd="ansible-playbook -i hosts create_ec2.yml -e \"region=${1} app_name=${2} key_name=${3}\" -vvvv"
     echo "${cmd}"
     eval ${cmd}
 }

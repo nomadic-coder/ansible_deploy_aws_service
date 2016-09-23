@@ -4,5 +4,6 @@
   become: yes
 
   roles:
-    - deploy
+    - attatch_s3_iam_policy
+    - deploy_app
 

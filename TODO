@@ -3,5 +3,5 @@
 - Pass become/become_user on command line (or figure out why it isn't being picked up from deploy_service.yml) DONE
 - Repace shell: sudo apt-get .... with apt ansible module (deploy role) DONE
 - Assign IAM Role to EC2 DONE
-- Attach S3 read policy to IAM Role for EC2
+- Attach S3 read policy to IAM Role for EC2 (currently broken - it tries to find policy doc on EC2 box)
 

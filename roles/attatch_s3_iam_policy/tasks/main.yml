@@ -1,0 +1,8 @@
+---
+- name: Attach S3 Readonly Policy to IAM Role
+  iam_policy:
+    iam_type: role
+    iam_name: "{{ app_name }}_iam_role"
+    policy_name: "s3_readonly_policy"
+    state: present
+    policy_document: "{{ playbook_dir }}/roles/attatch_s3_iam_policy/files/s3_readonly_policy.json"
