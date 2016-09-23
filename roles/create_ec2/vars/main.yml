@@ -1,0 +1,4 @@
+---
+ec2_instance_type: t2.micro
+ec2_image: ami-ed82e39e
+availability_zone: a

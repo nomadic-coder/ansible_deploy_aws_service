@@ -4,15 +4,16 @@
     region: "{{ region }}"
     filters:
       default-for-az: "true"
-      availability-zone: "{{ region }}a"
+      availability-zone: "{{ region }}{{ availability_zone }}"
   register: subnet_facts
 
 - name: Create EC2
   ec2:
     key_name: "{{ key_name }}"
     region: "{{ region }}"
-    instance_type: t2.micro
-    image: ami-ed82e39e
+    zone: "{{ region }}{{ availability_zone }}"
+    instance_type: "{{ ec2_instance_type }}"
+    image: "{{ ec2_image }}"
     vpc_subnet_id: "{{ subnet_facts.subnets[0].id }}"
     group_id: "{{ sg.group_id }}"
     assign_public_ip: yes
