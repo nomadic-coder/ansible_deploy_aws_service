@@ -9,4 +9,3 @@
     group_id: "{{ sg.group_id }}"
     assign_public_ip: yes
     instance_tags: { "Name":"{{ app_name }}_ec2" }
-

@@ -1,9 +1,12 @@
 # Ansible Playbooks that will deploy a service onto an EC2 in AWS
 
 ## Requirements
-The scripts rely on ansible, awscli and boto
+The scripts rely on 
+- Ansible (http://docs.ansible.com/ansible/intro_installation.html)
+- AWS CLI (http://docs.aws.amazon.com/cli/latest/userguide/installing.html)
+- Python boto module (https://pypi.python.org/pypi/boto)
 
-The ansible playbooks rely on the environment variable SSH_KEY_DIR to point to a directory containing the private ssh key you use to connect to your EC2 in AWS. For example, if you keep your ssh keys in directory */home/user1/keys* then set SSH_KEY_DIR as follows:  
+The ansible playbook require an environment variable SSH_KEY_DIR to point to a directory containing the private ssh key you use to connect to your EC2 in AWS. For example, if you keep your ssh keys in directory */home/user1/keys* then set SSH_KEY_DIR as follows:  
 % export SSH_KEY_DIR=/home/user1/keys
 
 ### Execute scripts
