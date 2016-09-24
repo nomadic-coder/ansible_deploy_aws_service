@@ -1,5 +1,6 @@
 ---
 - name: Attach S3 Readonly Policy to IAM Role
+  connection: local
   iam_policy:
     iam_type: role
     iam_name: "{{ app_name }}_iam_role"

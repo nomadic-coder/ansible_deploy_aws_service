@@ -1,7 +1,34 @@
 ---
-- name: Install boto
-#  ping:
-  apt: name=python-boto update_cache=yes
+- name: Install python boto module
+  become: yes
+  apt:
+    name: python-boto
+    state: present
+
+- name: Create download and unpack directories
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - "{{ download_dir }}"
+    - "{{ unpack_dir }}"
 
 - name: Retrieve deployment package
-  s3: bucket=com.nomadiccoder.surfspotter object=/surfspotter.tar.gz dest=/home/ubuntu/surfspotter.tar.gz mode=get
+  s3:
+    bucket: "{{ s3_bucket }}"
+    object: "{{ package }}"
+    dest: "{{ download_dir }}/{{ package }}"
+    mode: get
+
+- name: Unpack package
+  unarchive:
+    copy: no
+    src: "{{ download_dir }}/{{ package }}"
+    dest: "{{ unpack_dir }}"
+
+- name: Install app
+  become: yes
+  shell: "bash -c \"{{ unpack_dir }}/deploy/scripts/install.sh &> /var/log/surfspotter.install.log\""
+
+
+

@@ -1,7 +1,6 @@
 ---
 - hosts: "tag_Name_{{ app_name }}_ec2"
   user: ubuntu
-  become: yes
 
   roles:
     - attatch_s3_iam_policy
