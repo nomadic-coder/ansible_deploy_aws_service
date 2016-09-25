@@ -25,10 +25,11 @@
     copy: no
     src: "{{ download_dir }}/{{ package }}"
     dest: "{{ unpack_dir }}"
+    extra_opts: "deploy/scripts"
 
 - name: Install app
   become: yes
-  shell: "bash -c \"{{ unpack_dir }}/deploy/scripts/install.sh &> /var/log/surfspotter.install.log\""
-
+  shell: "bash -c \"{{ unpack_dir }}/deploy/scripts/install_upstart_server.sh {{ download_dir}}/{{ package }} &> /var/log/surfspotter.install.log\""
+  notify: "restart {{ app_name }}"
 
 

@@ -1,0 +1,4 @@
+---
+- name: "restart {{ app_name }}"
+  become: yes
+  shell: "service {{ app_name }} restart"
