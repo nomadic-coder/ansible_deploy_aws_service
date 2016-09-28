@@ -1,4 +1,8 @@
 ---
-- name: "restart {{ app_name }}"
+- name: install app
+  become: yes
+  shell: "bash -c \"{{ unpack_dir }}/deploy/scripts/install_upstart_server.sh {{ download_dir}}/{{ package }} &> /var/log/surfspotter.install.log\""
+
+- name: restart app
   become: yes
   shell: "service {{ app_name }} restart"

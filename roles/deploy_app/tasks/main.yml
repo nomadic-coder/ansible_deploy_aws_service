@@ -19,6 +19,7 @@
     object: "{{ package }}"
     dest: "{{ download_dir }}/{{ package }}"
     mode: get
+    overwrite: no
 
 - name: Unpack package
   unarchive:
@@ -26,10 +27,15 @@
     src: "{{ download_dir }}/{{ package }}"
     dest: "{{ unpack_dir }}"
     extra_opts: "deploy/scripts"
+  notify:
+    - install app
+    - restart app
 
-- name: Install app
-  become: yes
-  shell: "bash -c \"{{ unpack_dir }}/deploy/scripts/install_upstart_server.sh {{ download_dir}}/{{ package }} &> /var/log/surfspotter.install.log\""
-  notify: "restart {{ app_name }}"
+#- name: Install app
+#  become: yes
+#  shell: "bash -c \"{{ unpack_dir }}/deploy/scripts/install_upstart_server.sh {{ download_dir}}/{{ package }} &> /var/log/surfspotter.install.log\""
+#  notify:
+#    - install app
+#    - restart app
 
 
