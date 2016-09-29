@@ -1,5 +1,5 @@
 package: "{{ app_name }}.tar.gz"
-s3_bucket: "com.nomadiccoder.{{ app_name }}"
+s3_bucket: "com.nomadiccoder.{{ app_name }}-{{ app_version }}"
 home_dir: "/home/{{ ansible_user }}"
 download_dir: "{{ home_dir }}/download"
 unpack_dir: "{{ home_dir }}/unpack"

@@ -9,7 +9,7 @@
 
 - name: Create EC2
   ec2:
-    key_name: "{{ key_name }}"
+    key_name: "{{ ssh_key_name }}"
     region: "{{ region }}"
     zone: "{{ region }}{{ availability_zone }}"
     instance_type: "{{ ec2_instance_type }}"
@@ -20,8 +20,10 @@
     assign_public_ip: yes
     instance_tags:
       Name: "{{ app_name }}_ec2"
+      Version: "{{ app_version }}"
     count_tag:
       Name: "{{ app_name }}_ec2"
+      Version: "{{ app_version }}"
     exact_count: 2
     wait: true
   register: ec2
