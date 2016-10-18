@@ -16,7 +16,7 @@ The ansible playbook require an environment variable SSH_KEY_DIR to point to a d
 e.g % create_ec2.sh eu-west-1 hello_world my_ssh_key  
 
 **To deploy your application (work in progress)**  
-% deploy_app.sh \<application name\>  \<ssh_key_name\>  
+% deploy_app.sh \<application name\> \<application version\> \<ssh_key_name\>  
 
 e.g deploy_app.sh hello_world my_ssh_key
 

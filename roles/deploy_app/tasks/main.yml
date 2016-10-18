@@ -38,6 +38,3 @@
   notify:
     - install app
     - restart app
-
-
-
